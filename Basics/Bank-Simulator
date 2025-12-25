@@ -1,0 +1,107 @@
+import java.util.Scanner;
+class Bank
+{
+    private int balance;
+
+    public Bank()
+    {
+        this.balance =0;
+    }
+    //  int bal = 0;
+
+public int deposit(int amount)
+{
+    if(amount <=0) return balance;
+    balance+=amount;
+    return balance;
+}
+
+public  boolean withdraw(int amount)
+{
+     if(amount <=0) return false;
+     if(amount > balance) return false;
+     balance-=amount;
+     return  true;
+}
+
+public int getBalance()
+{
+    return balance;
+}
+
+
+
+}
+
+
+public class ATM
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        Bank bk = new Bank();
+        final int Correct_Pin = 1407;
+        System.out.print("Enter Your Pin: ");
+        int Entered_Pin= sc.nextInt();
+        if(Entered_Pin!=Correct_Pin)
+        {
+            System.out.println("Invalid Pin , Please Try Again");
+            sc.close();
+            return;
+        }
+
+        while (true) 
+            {
+            System.out.println("--- ATM Menu ---");
+            System.out.println("1. Deposit");
+            System.out.println("2. Withdraw");
+            System.out.println("3. Check Balance");
+            System.out.println("4. Exit");
+            System.out.print("Choose an option (1-4): ");
+
+        int choice = sc.nextInt();
+        
+        switch (choice) {
+            case 1:
+                
+                        System.out.print("Enter the amount you want to deposit: ");
+                        int dep = sc.nextInt();
+                        int newBalance = bk.deposit(dep);
+                        System.out.println("Successfully deposited: " + dep );
+                        System.out.println(" Your New Balance: " + newBalance);
+                        break;
+            case 2:
+                        System.out.print("Enter the amount you want to withdraw: ");
+                        int wd = sc.nextInt();
+                        boolean withdraw = bk.withdraw(wd);
+                        if(withdraw)
+                        {
+                            System.out.println("Successfully withdrawn "+ wd +"Your Current balance is: "+ bk.getBalance());
+                        }
+                        else
+                        {
+                            System.out.println("Invalid amount ,    Enter a valid amount to withdraw");
+                        }
+                        break;
+                        
+                case 3:     
+                        
+                        System.out.println("Your current balance is: " + bk.getBalance());
+                        break;
+                
+
+                case 4:
+                        System.out.println("Thanks,Goodbye!");
+                        sc.close();
+                        return;
+                        
+                default:
+                    System.out.println("Invalid Choice, Try Again!");
+                    }
+
+            }
+        
+    }
+}    
+    
+
