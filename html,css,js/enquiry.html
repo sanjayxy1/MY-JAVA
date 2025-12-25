@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Inheritance Example</title>
+
+    <style>
+        
+        body {
+            background-color: #eef2ff;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333333;
+        }
+
+        .container {
+            width: 600px;
+            margin: 50px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border: 2px solid #999;
+        }
+
+        
+        h1 {
+            text-align: center;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        
+        .highlight {
+            color: blue;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>CSS Inheritance</h1>
+
+        <p>
+            This paragraph inherits <b>font-family</b> and <b>color</b> from the body element.
+        </p>
+
+        <p class="highlight">
+            This paragraph overrides the inherited color.
+        </p>
+
+        <p>
+            All text inside this container follows the same font style automatically.
+        </p>
+    </div>
+
+</body>
+</html>
