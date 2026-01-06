@@ -1,0 +1,21 @@
+import java.util.Scanner;
+public class hello {
+
+    public static int sum(int a )
+    {
+        if(a <= 0)
+        {
+            return 0;
+        }
+        else
+        {
+            return a +sum(a-1);
+        }
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int result = sum(sc.nextInt());
+        System.out.println(result);
+        sc.close();
+    }
+}
