@@ -1,0 +1,46 @@
+import java.util.*;
+public class main
+{
+    public static void main(String[] args) 
+    {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        s = s.replaceAll("[^a-zA-Z\\s]", "");
+        String words[] = s.split("\\s+");
+
+        Arrays.sort(words);
+        String maxWord = "None";
+        int maxCount = 1;
+        int currentCount = 1;
+        for(int i = 1; i <words.length;i++)
+        {
+            if(words[i].equals(words[i-1]))
+            {
+                currentCount++;
+            }
+            else
+            {
+                if(currentCount > maxCount)
+                {
+                    maxCount = currentCount;
+                    maxWord = words[i-1];
+                }
+                currentCount = 1;
+            }
+        }
+        if(currentCount > maxCount)
+        {
+            maxCount = currentCount;
+            maxWord = words[words.length -1];
+        }
+
+        if(maxCount > 1)
+        {
+            System.out.println(maxWord);
+        }
+        else
+        {
+            System.out.println("None");
+        }
+    }
+}
